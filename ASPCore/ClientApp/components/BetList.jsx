@@ -8,7 +8,7 @@ import { withRouter } from 'react-router-dom';
 export class BetList extends Component {
 
     constructor(props) {
-        //test
+
         super(props);
         this.state = {
             matchId: '0'
