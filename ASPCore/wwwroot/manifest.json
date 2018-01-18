@@ -1,0 +1,17 @@
+﻿{
+  "name": "Awesome Application",
+  "short_name": "Awesome",
+  "description": "The most awesome application in the world",
+  "icons": [
+    {
+      "src": "/img/Camera.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/img/Camera.png",
+      "sizes": "512x512"
+    }
+  ],
+  "display": "standalone",
+  "start_url": "/"
+}
