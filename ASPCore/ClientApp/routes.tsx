@@ -5,12 +5,12 @@ import { Home } from './components/Home';
 import { FetchData } from './components/FetchData';
 import { Counter } from './components/Counter';
 import { Dashboard } from './components/Dashboard';
-import { MatchHome } from './components/MatchHome';
+import { Scoreboard } from './components/Scoreboard';
 
 export const routes = <Layout>
     <Route exact path='/' component={ Home } />
     <Route path='/counter' component={ Counter } />
     <Route path='/fetchdata' component={FetchData} />
     <Route path='/Dashboard' component={Dashboard} />
-    <Route path='/MatchHome' component={MatchHome} />
+    <Route path='/Scoreboard' component={Scoreboard} />
 </Layout>;

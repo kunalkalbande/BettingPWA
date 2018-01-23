@@ -42,7 +42,7 @@ export class Dashboard extends React.Component<RouteComponentProps<{}>, Dashboar
         return <div className='container'>
             <div className='row'>
                 {Matches.map(Match =>
-                    <div className='col-lg-3' style={{ padding: '1px' }}>
+                    <div className='col-lg-3' style={{ padding: '1px' }} key={Match.URL}>
                         <div className='card text-center' style={{ backgroundColor: 'white', height: 280, margin: 10 }}>
                             <div className='card-header'>
                                 <h3 className='card-title truncate' style={{ color: '#005694' }}>{Match.Name}</h3>
@@ -51,12 +51,12 @@ export class Dashboard extends React.Component<RouteComponentProps<{}>, Dashboar
                                 <h4>{Match.Status}</h4>
                                 <hr />
                                 <p className='card-text'>{Match.Details}</p>
-                                
+
                             </div>
                             <div className='card-footer text-muted'>
-                                <a href="#" className='btn btn-info btn-lg'>Teams</a>&nbsp;
+                                <button type="button" className='btn btn-info btn-lg' data-toggle="tooltip" data-placement="bottom" title="View Playing 11">Teams</button>&nbsp;
                                 <a href="#" className='btn btn-success btn-lg'>Score</a>&nbsp;
-                                <a href="#" className='btn btn-outline-warning btn-lg'>Bet</a>
+                                <button type="button" className='btn btn-outline-warning btn-lg'>Bet</button>
                             </div>
                         </div>
                     </div>
