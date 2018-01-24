@@ -7,14 +7,34 @@ import 'isomorphic-fetch';
 interface DashboardExampleState {
     Sscoreboard: any;
     loading: boolean;
+    MID: string;
+    MName: string;
 }
 
 export class Scoreboard extends React.Component<RouteComponentProps<{}>, DashboardExampleState> {
     constructor() {
         super();
-        this.state = { Sscoreboard: null, loading: true };
+        this.state = { Sscoreboard: null, loading: true, MID: '', MName: '' };
+    }
 
-        fetch('http://172.25.29.70:92/API/Cricket/19352/ban-vs-zim-5th-match-sri-lanka-and-zimbabwe-in-bangladesh-tri-series-2018/GetMatchScore')
+    componentWillMount() {
+
+        var purl = window.location.href;
+        var pindex = purl.indexOf('=');
+        //var strp = purl.substring(pindex + 1);
+        var M_URL = purl.substring(purl.split("=", 1).join("=").length + 1);
+        var M_Name = purl.substring(purl.split("=", 2).join("=").length + 1);
+        M_URL = M_URL.substring(0, M_URL.indexOf('&'));
+        //console.log('Name : ' + M_Name);
+        //console.log('URL : ' + M_URL);
+        this.setState({ MID: M_URL });
+        this.setState({ MName: M_Name });
+        this.getScore(M_URL, M_Name);
+        //console.log("Scoreboard Props : " + this.props.params);
+    }
+
+    getScore(mURL: string, mName: string) {
+        fetch('http://172.25.29.70:92/API/Cricket/' + mURL + '/' + mName + '/GetMatchScore')
             .then(response => response.json() as Promise<IScoreboard>)
             .then(data => {
                 this.setState({ Sscoreboard: data, loading: false });
@@ -42,7 +62,7 @@ export class Scoreboard extends React.Component<RouteComponentProps<{}>, Dashboa
         return <div className='container'>
             <div>
                 {innings.map(inning =>
-                    <div>
+                    <div key={inning.WhosInning}>
                         <br />
                         <h3 className='card-title truncate' style={{ color: '#005694' }}><span className='label label-default'>{inning.WhosInning}</span></h3>
 
@@ -84,6 +104,10 @@ export class Scoreboard extends React.Component<RouteComponentProps<{}>, Dashboa
                                     <tr>
                                         <td colSpan={7}>
                                             {inning.DidNotBat}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colSpan={7}>
                                         </td>
                                     </tr>
                                 </tbody>

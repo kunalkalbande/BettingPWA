@@ -1,30 +1,37 @@
 ﻿import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import 'isomorphic-fetch';
+import * as JQuery from 'jquery';
+import * as BT from 'bootstrap';
+import { Link, NavLink, withRouter, BrowserRouter } from 'react-router-dom';
+
+
 //import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'bootstrap';
 
 
 interface DashboardExampleState {
-    forecasts: MatchDetails[];
+    Matches: MatchDetails[];
     loading: boolean;
 }
 
 export class Dashboard extends React.Component<RouteComponentProps<{}>, DashboardExampleState> {
+
     constructor() {
         super();
-        this.state = { forecasts: [], loading: true };
+        //this.handleClick = this.handleClick.bind(this);
+        this.state = { Matches: [], loading: true };
 
         fetch('http://172.25.29.70:92/API/Cricket/GetCurrentMatches')
             .then(response => response.json() as Promise<MatchDetails[]>)
             .then(data => {
-                this.setState({ forecasts: data, loading: false });
+                this.setState({ Matches: data, loading: false });
             });
     }
 
     public render() {
         let contents = this.state.loading
             ? <p><em>Loading...</em></p>
-            : Dashboard.renderMatchCard(this.state.forecasts);
+            : Dashboard.renderMatchCard(this.state.Matches);
 
         return <div>
             <div className='row' style={{ margin: '10px' }}>
@@ -44,7 +51,7 @@ export class Dashboard extends React.Component<RouteComponentProps<{}>, Dashboar
                 {Matches.map(Match =>
                     <div className='col-lg-3' style={{ padding: '1px' }} key={Match.URL}>
                         <div className='card text-center' style={{ backgroundColor: 'white', height: 280, margin: 10 }}>
-                            <div className='card-header'>
+                            <div className='card-header' data-toggle="tooltip" data-placement="bottom" title={Match.Name}>
                                 <h3 className='card-title truncate' style={{ color: '#005694' }}>{Match.Name}</h3>
                             </div>
                             <div className='card-block'>
@@ -53,10 +60,13 @@ export class Dashboard extends React.Component<RouteComponentProps<{}>, Dashboar
                                 <p className='card-text'>{Match.Details}</p>
 
                             </div>
-                            <div className='card-footer text-muted'>
-                                <button type="button" className='btn btn-info btn-lg' data-toggle="tooltip" data-placement="bottom" title="View Playing 11">Teams</button>&nbsp;
-                                <a href="#" className='btn btn-success btn-lg'>Score</a>&nbsp;
-                                <button type="button" className='btn btn-outline-warning btn-lg'>Bet</button>
+                            <div className='card-footer text-muted' style={{}} >
+                                <div className='row' style={{ paddingLeft: 22 }}>
+                                    <Link to={"/PlayerList?mid=" + Match.URL + "&mname=" + Match.Name} className="'btn btn-info btn-lg" disabled={Match.Status != 'Match will start soon.' ? false : true}>Teams</Link>&nbsp;
+                                    <Link to={"/Scoreboard?mid=" + Match.URL + "&mname=" + Match.Name} className="btn btn-success btn-lg" disabled={Match.Status != 'Match will start soon.' ? false : true}>Score</Link>&nbsp;
+                                     <Link to={"/Scoreboard?mid=" + Match.URL + "&mname=" + Match.Name} className="btn btn-outline-warning btn-lg" disabled={Match.Status != 'Match will start soon.' ? false : true}>Bet</Link>
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -65,7 +75,6 @@ export class Dashboard extends React.Component<RouteComponentProps<{}>, Dashboar
             </div>
         </div>;
     }
-
 }
 
 interface MatchDetails {
