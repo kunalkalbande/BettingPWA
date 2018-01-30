@@ -7,7 +7,7 @@ import { Counter } from './components/Counter';
 import { Dashboard } from './components/Dashboard';
 import { Scoreboard } from './components/Scoreboard';
 import { PlayerList } from './components/PlayerList';
-import { Child } from './components/Child';
+import { Login } from './components/login';
 
 export const routes = <Layout>
     <Route exact path='/' component={Home} />
@@ -17,5 +17,5 @@ export const routes = <Layout>
     </Route>
     <Route path='/Scoreboard' component={Scoreboard} />
     <Route path='/PlayerList' component={PlayerList} />
-    <Route path='/Child' component={Child} />
+    <Route path='/Login' component={Login} />
 </Layout>;
