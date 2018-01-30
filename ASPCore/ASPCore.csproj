@@ -25,10 +25,17 @@
 
   <ItemGroup>
     <None Remove="ClientApp\components\BetListHome.tsx" />
+    <None Remove="ClientApp\components\login.tsx" />
+    <None Remove="ClientApp\components\PlayerScore.tsx" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="node_modules\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\components\login.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\PlayerScore.tsx" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

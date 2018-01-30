@@ -5,7 +5,6 @@ import * as JQuery from 'jquery';
 import * as BT from 'bootstrap';
 import { Link, NavLink, withRouter, BrowserRouter } from 'react-router-dom';
 
-
 //import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'bootstrap';
 
 
@@ -49,7 +48,9 @@ export class Dashboard extends React.Component<RouteComponentProps<{}>, Dashboar
         return <div className='container'>
             <div className='row'>
                 {Matches.map(Match =>
+
                     <div className='col-lg-3' style={{ padding: '1px' }} key={Match.URL}>
+                        
                         <div className='card text-center' style={{ backgroundColor: 'white', height: 280, margin: 10 }}>
                             <div className='card-header' data-toggle="tooltip" data-placement="bottom" title={Match.Name}>
                                 <h3 className='card-title truncate' style={{ color: '#005694' }}>{Match.Name}</h3>
