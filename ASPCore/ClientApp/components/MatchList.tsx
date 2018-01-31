@@ -1,6 +1,6 @@
 ﻿import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
-import MatchCard from '../childcomponents/MatchCard';
+import { MatchCard } from '../childcomponents/MatchCard';
 
 
 interface DashboardExampleState {

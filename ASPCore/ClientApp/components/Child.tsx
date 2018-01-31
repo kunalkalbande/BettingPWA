@@ -5,7 +5,6 @@ import { RouteComponentProps } from 'react-router';
 interface DashboardExampleState {
     PScore: Object;
     str: string;
-
 }
 
 export class Child extends React.Component<any, DashboardExampleState> {
@@ -25,9 +24,7 @@ export class Child extends React.Component<any, DashboardExampleState> {
         return <div>
             <p>{this.props.name}- - {(this.state.PScore as PlayerScore).MatchId}</p>
         </div>;
-    }
-
-  
+    }  
 }
 interface PlayerScore {
     MatchId: string;
