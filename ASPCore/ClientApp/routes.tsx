@@ -7,14 +7,15 @@ import { Counter } from './components/Counter';
 import { Dashboard } from './components/Dashboard';
 import { Scoreboard } from './components/Scoreboard';
 import { PlayerList } from './components/PlayerList';
-import { Login } from './components/Login';
+import { Login } from './components/login';
 
 export const routes = <Layout>
-    <Route exact path='/Home' component={Home} />
+    <Route exact path='/' component={Home} />
     <Route path='/counter' component={Counter} />
     <Route path='/fetchdata' component={FetchData} />
-    <Route path='/' component={Dashboard} >        
+    <Route path='/Dashboard' component={Dashboard} >        
     </Route>
     <Route path='/Scoreboard' component={Scoreboard} />
     <Route path='/PlayerList' component={PlayerList} />
+    <Route path='/Login' component={Login} />
 </Layout>;
