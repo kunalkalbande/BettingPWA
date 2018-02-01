@@ -4,6 +4,7 @@ import 'isomorphic-fetch';
 import * as JQuery from 'jquery';
 import * as BT from 'bootstrap';
 import { Link, NavLink, withRouter, BrowserRouter } from 'react-router-dom';
+import { MatchCard } from '../childComponents/MatchCard';
 
 //import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'bootstrap';
 
@@ -48,30 +49,7 @@ export class Dashboard extends React.Component<RouteComponentProps<{}>, Dashboar
         return <div className='container'>
             <div className='row'>
                 {Matches.map(Match =>
-
-                    <div className='col-lg-3' style={{ padding: '1px' }} key={Match.URL}>
-                        
-                        <div className='card text-center' style={{ backgroundColor: 'white', height: 280, margin: 10 }}>
-                            <div className='card-header' data-toggle="tooltip" data-placement="bottom" title={Match.Name}>
-                                <h3 className='card-title truncate' style={{ color: '#005694' }}>{Match.Name}</h3>
-                            </div>
-                            <div className='card-block'>
-                                <h4>{Match.Status}</h4>
-                                <hr />
-                                <p className='card-text'>{Match.Details}</p>
-
-                            </div>
-                            <div className='card-footer text-muted' style={{}} >
-                                <div className='row' style={{ paddingLeft: 22 }}>
-                                    <Link to={"/PlayerList?mid=" + Match.URL + "&mname=" + Match.Name} className="'btn btn-info btn-lg" disabled={Match.Status != 'Match will start soon.' ? false : true}>Teams</Link>&nbsp;
-                                    <Link to={"/Scoreboard?mid=" + Match.URL + "&mname=" + Match.Name} className="btn btn-success btn-lg" disabled={Match.Status != 'Match will start soon.' ? false : true}>Score</Link>&nbsp;
-                                     <Link to={"/Scoreboard?mid=" + Match.URL + "&mname=" + Match.Name} className="btn btn-outline-warning btn-lg" disabled={Match.Status != 'Match will start soon.' ? false : true}>Bet</Link>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    <MatchCard Match={Match} key={Match.URL} />
                 )}
             </div>
         </div>;

@@ -14,12 +14,12 @@ interface DashboardExampleState {
 }
 
 export class PlayerList extends React.Component<RouteComponentProps<{}>, DashboardExampleState> {
-    
+
     constructor() {
         super();
 
         this.state = { forecasts: [], loading: true, runs: null, MID: '', MName: '', score: null };
-        
+
         //fetch('http://172.25.29.70:92/API/Cricket/19352/BangladeshvsZimbabwe/GetTeams')
         //    .then(response => response.json() as Promise<any[]>)
         //    .then(data => {
@@ -51,7 +51,7 @@ export class PlayerList extends React.Component<RouteComponentProps<{}>, Dashboa
         //console.log("Scoreboard Props : " + this.props.params);
     }
     componentDidMount() {
-       
+
         //this.getPlayerScore(M_Name, M_URL);
 
     }
@@ -70,13 +70,13 @@ export class PlayerList extends React.Component<RouteComponentProps<{}>, Dashboa
     //            this.setState({ score: data, loading: false });
     //        });
     //}
-     getPlayerScore(mName: string, mURL: string) {
-         fetch('http://172.25.29.70:92/API/Cricket/' + mName + '/' + mURL + '/GetPlayerScore')
+    getPlayerScore(mName: string, mURL: string) {
+        fetch('http://172.25.29.70:92/API/Cricket/' + mName + '/' + mURL + '/GetPlayerScore')
             .then(response => response.json() as Promise<any>)
             .then(data => {
                 this.setState({ score: data, loading: false });
             });
-         //console.log(score);
+        //console.log(score);
     }
 
     public render() {
@@ -103,34 +103,28 @@ export class PlayerList extends React.Component<RouteComponentProps<{}>, Dashboa
             <div>
                 {Matches.Team.map(inning =>
                     <div>
-                        
-                        
-                    <div className='col-lg-6' style={{ padding: '1px' }} key={inning.TeamName}>
-                        
-                        <div key={inning.TeamName}>
-                            <br />
-                            <h3 className='card-title truncate' style={{ color: '#005694' }}><span className='label label-default'>{inning.TeamName} (Playing 11)</span></h3>
-                            <div>
-                                <table className='table table-sm'>
-                                    
-                                    <tbody>
+                        <div className='col-lg-6' style={{ padding: '1px' }} key={inning.TeamName}>
+                            <div key={inning.TeamName}>
+                                <br />
+                                <h3 className='card-title truncate' style={{ color: '#005694' }}><span className='label label-default'>{inning.TeamName} (Playing 11)</span></h3>
+                                <div>
+                                    <table className='table table-sm'>
+                                        <tbody>
                                             {inning.Playing.map(BM =>
                                                 <div>
-                                                    <PlayrScore name={BM.Name} matchId={mid} image={BM.ImageURL}/>
+                                                    <PlayrScore name={BM.Name} matchId={mid} image={BM.ImageURL} />
                                                 </div>
                                             )}
-                                            <h3 className='card-title truncate' style={{ color: '#005694'}}><span className='label label-default'>Bench</span></h3>
+                                            <h3 className='card-title truncate' style={{ color: '#005694' }}><span className='label label-default'>Bench</span></h3>
                                             {inning.Bench.map(BM =>
                                                 <div>
                                                     <PlayrScore name={BM.Name} matchId={mid} image={BM.ImageURL} />
                                                 </div>
                                             )}
-
-                                    </tbody>
-
-                                </table>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                 )}
