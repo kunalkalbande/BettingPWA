@@ -4,3 +4,4 @@
 
 /.vs/ASPCore/v15/Server/sqlite3
 /.vs/ASPCore/v15/.suo
+/node_modules/@types
