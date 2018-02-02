@@ -36,7 +36,7 @@ export class Register extends React.Component<RouteComponentProps<{}>, {}> {
                                 </div>
                                 <div className="form-group last">
                                     <div className="col-sm-offset-3 col-sm-9">
-                                        <Link to={"/Dashboard"} className="btn btn-success btn-lg">SignIn</Link>
+                                        <Link to={"/Dashboard"} className="btn btn-success btn-lg">Register</Link>
                                     </div>
                                 </div>
                             </form>
