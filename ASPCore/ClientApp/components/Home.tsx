@@ -1,84 +1,75 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
+import { Doughnut, Bar,Line } from 'react-chartjs-2';
 
-export class Home extends React.Component<RouteComponentProps<{}>, {}> {
+
+interface DashboardExampleState {
+    data: any;
+    doughData: any;
+}
+export class Home extends React.Component<RouteComponentProps<{}>, DashboardExampleState> {
+    constructor() {
+        super();
+        this.state = { data: null, doughData: null };
+    }
+
+    componentWillMount() {
+        this.setState({
+            data : {
+                labels: ['10', '15', '20', '25', '30','35','40','45','50'],
+                datasets: [
+                    {
+                        label: 'My First dataset',
+                        fill: false,
+                        lineTension: 0.1,
+                        backgroundColor: 'rgba(75,192,192,0.4)',
+                        borderColor: 'rgba(75,192,192,1)',
+                        borderCapStyle: 'butt',
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderJoinStyle: 'miter',
+                        pointBorderColor: 'rgba(75,192,192,1)',
+                        pointBackgroundColor: '#fff',
+                        pointBorderWidth: 5,
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+                        pointHoverBorderColor: 'rgba(220,220,220,1)',
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 1,
+                        pointHitRadius: 10,
+                        data: [65, 59, 80, 81, 56, 55, 40, 35, 20]
+                    }
+                ]
+            },
+            doughData: {
+                labels: [
+                    'Red',
+                    'Green',
+                    'Yellow'
+                ],
+                datasets: [{
+                    data: [300, 50, 100],
+                    backgroundColor: [
+                        '#FF6384',
+                        '#36A2EB',
+                        '#FFCE56'
+                    ],
+                    hoverBackgroundColor: [
+                        '#FF6384',
+                        '#36A2EB',
+                        '#FFCE56'
+                    ]
+                }]
+            }
+        });
+    }
+
+
+
     public render() {
-        return <div>
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="text-center text-uppercase">
-                            <h2>My Strengths</h2>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="row">
-                    <div className="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-                        <div className="bar-chart">
-                            <div className="legend">
-                                <div className="item">
-                                    <h4>Newbie</h4>
-                                </div>
-
-                                <div className="item">
-                                    <h4>Decent</h4>
-                                </div>
-
-                                <div className="item text-right">
-                                    <h4>Good</h4>
-                                </div>
-
-                                <div className="item text-right">
-                                    <h4>Superhero</h4>
-                                </div>
-                            </div>
-
-                            <div className="chart clearfix">
-                                <div className="item">
-                                    <div className="bar">
-                                        <span className="percent">92%</span>
-
-                                        <div className="item-progress" data-percent="92">
-                                            <span className="title">Creativity</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="item">
-                                    <div className="bar">
-                                        <span className="percent">71%</span>
-
-                                        <div className="item-progress" data-percent="71">
-                                            <span className="title">Reliable</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="item">
-                                    <div className="bar">
-                                        <span className="percent">82%</span>
-
-                                        <div className="item-progress" data-percent="82">
-                                            <span className="title">Comunication</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="item">
-                                    <div className="bar">
-                                        <span className="percent">67%</span>
-
-                                        <div className="item-progress" data-percent="67">
-                                            <span className="title">Persuasion</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        return <div className="chart">
+            <Line data={this.state.data} height={100} />
+           
         </div>;
     }
 }

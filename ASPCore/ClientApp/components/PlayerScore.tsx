@@ -22,8 +22,8 @@ export class PlayrScore extends React.Component<any, DashboardExampleState> {
     }
 
     public render() {
-        return <div style={{ backgroundColor: "green" }}>
-            <tr key={this.props.name} style={{ backgroundColor: "gray", width: "250" }}>
+        return <div className='row'>
+            <tr key={this.props.name}>
                 <td>
                     <img src={this.props.image} className="img-circle img-responsive" style={{ maxWidth: 100, maxHeight: 100, minHeight: 100, minWidth: 100 }}>
                     </img>

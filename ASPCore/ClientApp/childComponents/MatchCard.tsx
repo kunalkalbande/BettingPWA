@@ -27,7 +27,8 @@ export class MatchCard extends React.Component<any, DashboardExampleState> {
                     <div>
                         <Link to={"/PlayerList?mid=" + (this.props.Match as Match).URL + "&mname=" + (this.props.Match as Match).Name} className="btn btn-info btn-lg" disabled={(this.props.Match as Match).Status != 'Match will start soon.' ? false : true} style={{ margin: '1px'}}>Team</Link>
                         <Link to={"/Scoreboard?mid=" + (this.props.Match as Match).URL + "&mname=" + (this.props.Match as Match).Name} className="btn btn-success btn-lg" disabled={(this.props.Match as Match).Status != 'Match will start soon.' ? false : true} style={{ margin: '1px' }}>Score</Link>
-                        <Link to={"/Scoreboard?mid=" + (this.props.Match as Match).URL + "&mname=" + (this.props.Match as Match).Name} className="btn btn-outline-warning btn-lg" disabled={(this.props.Match as Match).Status != 'Match will start soon.' ? false : true} style={{ margin: '1px' }}>Bet</Link>
+                        <Link to={"/Bet?mid=" + (this.props.Match as Match).URL + "&mname=" + (this.props.Match as Match).Name} className="btn btn-outline-warning btn-lg" disabled={(this.props.Match as Match).Status != 'Match will start soon.' ? false : true} style={{ margin: '1px' }}>Bet</Link>
+                        <Link to={"/Stats?mid=" + (this.props.Match as Match).URL + "&mname=" + (this.props.Match as Match).Name} className="btn btn-outline-warning btn-lg" disabled={(this.props.Match as Match).Status != 'Match will start soon.' ? false : true} style={{ margin: '1px' }}>chart</Link>
                     </div>
                 </div>
             </div>

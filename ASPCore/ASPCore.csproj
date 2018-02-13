@@ -24,11 +24,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\components\Bet.tsx" />
     <None Remove="ClientApp\components\BetListHome.tsx" />
     <None Remove="ClientApp\components\Betting.tsx" />
+    <None Remove="ClientApp\components\Charts.tsx" />
     <None Remove="ClientApp\components\login.tsx" />
     <None Remove="ClientApp\components\PlayerScore.tsx" />
     <None Remove="ClientApp\components\Register.tsx" />
+    <None Remove="ClientApp\components\Stats.tsx" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,10 +39,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\components\Bet.tsx" />
     <TypeScriptCompile Include="ClientApp\components\Betting.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Charts.tsx" />
     <TypeScriptCompile Include="ClientApp\components\login.tsx" />
     <TypeScriptCompile Include="ClientApp\components\PlayerScore.tsx" />
     <TypeScriptCompile Include="ClientApp\components\Register.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Stats.tsx" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

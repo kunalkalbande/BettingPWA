@@ -1,8 +1,6 @@
 ﻿import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import 'isomorphic-fetch';
-import * as JQuery from 'jquery';
-import * as BT from 'bootstrap';
 import { Link, NavLink, withRouter, BrowserRouter } from 'react-router-dom';
 
 export class Register extends React.Component<RouteComponentProps<{}>, {}> {
