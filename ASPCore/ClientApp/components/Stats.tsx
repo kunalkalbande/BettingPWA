@@ -1,7 +1,6 @@
 ﻿import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import 'isomorphic-fetch';
-
 import { Doughnut, Bar, Line, Pie } from 'react-chartjs-2';
 
 //import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'bootstrap';
@@ -146,7 +145,7 @@ export class Stats extends React.Component<RouteComponentProps<{}>, DashboardExa
             {console.log(this.state.Runs)}
             {console.log(this.state.PName)}
             <div>
-                <Doughnut data={this.state.piedata}/>
+              //add here
             </div>
         </div>;
     }

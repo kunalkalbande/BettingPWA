@@ -20,17 +20,19 @@ export class Dashboard extends React.Component<RouteComponentProps<{}>, Dashboar
         this.state = { Matches: [], loading: true };
 
         fetch('http://172.25.29.70:92/API/Cricket/GetCurrentMatches')
-            .then(response => response.json() as Promise<MatchDetails[]>)
+        .then(response => response.json() as Promise<MatchDetails[]>)
             .then(data => {
                 this.setState({ Matches: data, loading: false });
+                console.log(this.state);
             });
-    }
+
+       }
 
     public render() {
         let contents = this.state.loading
             ? <p><em>Loading...</em></p>
             : Dashboard.renderMatchCard(this.state.Matches);
-
+        debugger;
         return <div>
             <div className='row' style={{ margin: '10px' }}>
                 <h1>Current Matches</h1>
@@ -38,7 +40,7 @@ export class Dashboard extends React.Component<RouteComponentProps<{}>, Dashboar
             <div >
                 {contents}
             </div>
-
+                
         </div>;
     }
 
@@ -59,4 +61,11 @@ interface MatchDetails {
     Name: string;
     Status: string;
     URL: string;
+    OtherInfo: OtherInfo;
+}
+
+interface OtherInfo {
+    MatchVenue: string;
+    MatchDate: string;
+    SeriesName: string;
 }

@@ -12,6 +12,7 @@ import { PlayerList } from './components/PlayerList';
 import { Login } from './components/login';
 import { Register } from './components/Register';
 import { Bet } from './components/Bet';
+import { AllBets } from './components/AllBets';
 export const routes = <Layout>
     <Route exact path='/' component={Home} />
     <Route path='/counter' component={Counter} />
@@ -22,4 +23,6 @@ export const routes = <Layout>
     <Route path='/PlayerList' component={PlayerList} />
     <Route path='/Stats' component={Stats} />
     <Route path='/Register' component={Register} />
+    <Route path='/AllBets' component={AllBets} />
+
 </Layout>;

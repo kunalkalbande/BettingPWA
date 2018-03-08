@@ -29,6 +29,7 @@
     <None Remove="ClientApp\components\Betting.tsx" />
     <None Remove="ClientApp\components\Charts.tsx" />
     <None Remove="ClientApp\components\login.tsx" />
+    <None Remove="ClientApp\components\PieChart.tsx" />
     <None Remove="ClientApp\components\PlayerScore.tsx" />
     <None Remove="ClientApp\components\Register.tsx" />
     <None Remove="ClientApp\components\Stats.tsx" />
@@ -39,6 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\components\PieChart.tsx" />
     <TypeScriptCompile Include="ClientApp\components\Bet.tsx" />
     <TypeScriptCompile Include="ClientApp\components\Betting.tsx" />
     <TypeScriptCompile Include="ClientApp\components\Charts.tsx" />

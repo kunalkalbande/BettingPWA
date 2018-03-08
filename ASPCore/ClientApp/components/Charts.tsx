@@ -62,7 +62,7 @@ export class Charts extends React.Component<RouteComponentProps<{}>, DashboardEx
 
     public render() {
         return <div className="chart">
-            <Line data={this.state.data} height={100} />
+            
 
         </div>;
     }

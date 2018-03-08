@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
-import { Doughnut, Bar,Line } from 'react-chartjs-2';
+import { Doughnut, Bar, Line } from 'react-chartjs-2';
 
 
 interface DashboardExampleState {
@@ -15,8 +15,8 @@ export class Home extends React.Component<RouteComponentProps<{}>, DashboardExam
 
     componentWillMount() {
         this.setState({
-            data : {
-                labels: ['10', '15', '20', '25', '30','35','40','45','50'],
+            data: {
+                labels: ['10', '15', '20', '25', '30', '35', '40', '45', '50'],
                 datasets: [
                     {
                         label: 'My First dataset',
@@ -68,8 +68,6 @@ export class Home extends React.Component<RouteComponentProps<{}>, DashboardExam
 
     public render() {
         return <div className="chart">
-            <Line data={this.state.data} height={100} />
-           
-        </div>;
+            </div>;
     }
 }

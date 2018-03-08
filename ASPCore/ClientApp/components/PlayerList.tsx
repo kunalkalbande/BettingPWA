@@ -57,7 +57,7 @@ export class PlayerList extends React.Component<RouteComponentProps<{}>, Dashboa
     }
 
     getScore(mURL: string, mName: string) {
-        fetch('http://172.25.29.70:92/API/Cricket/' + mURL + '/' + mName + '/GetTeams')
+        fetch('http://172.25.29.70:92/API/Cricket/' + mURL + '/' + mName + '/GetTeams')  
             .then(response => response.json() as Promise<any[]>)
             .then(data => {
                 this.setState({ forecasts: data, loading: false });
@@ -76,6 +76,7 @@ export class PlayerList extends React.Component<RouteComponentProps<{}>, Dashboa
             .then(data => {
                 this.setState({ score: data, loading: false });
             });
+
         //console.log(score);
     }
 
