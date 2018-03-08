@@ -41,6 +41,7 @@ export class Bet extends React.Component<RouteComponentProps<{}>, DashboardExamp
     }
 
     componentWillMount() {
+        debugger;
         var purl = window.location.href;
         var pindex = purl.indexOf('=');
         var M_URL = purl.substring(purl.split("=", 1).join("=").length + 1);
@@ -95,12 +96,12 @@ export class Bet extends React.Component<RouteComponentProps<{}>, DashboardExamp
 
 
         debugger;
-        //fetch('http://172.24.10.237:555/GetPredictedWinProbability?Team1=' + t1 + '&Team2=' + t2 + '&Ground=' + ground + '&MatchDate=' + date + '&Innings_Team1=1')
-        //    .then(response => response.json() as Promise<any[]>)
-        //    .then(data => {
-        //        this.setState({ predictions: data, loading: false });
-        //        console.log(data);
-        //    });
+        fetch('http://172.24.10.237:555/GetPredictedWinProbability?Team1=' + t1 + '&Team2=' + t2 + '&Ground=' + ground + '&MatchDate=' + date + '&Innings_Team1=1')
+            .then(response => response.json() as Promise<any[]>)
+            .then(data => {
+                this.setState({ predictions: data, loading: false });
+                console.log(data);
+            });
 
         //   http://172.24.10.237:555/GetPredictedWinProbability?Team1=&Team2=&Ground=Dubai&MatchDate=Feb%2023,%2003:30%20PM%20LOCAL&Innings_Team1=1
 
@@ -188,6 +189,8 @@ export class Bet extends React.Component<RouteComponentProps<{}>, DashboardExamp
             }
         });
         let R;
+
+        debugger;
         return <div className='container'>
 
 
